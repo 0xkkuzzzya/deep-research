@@ -17,10 +17,10 @@ export const gpt4Model = openai('gpt-4o', {
 export const gpt4MiniModel = openai('gpt-4o-mini', {
   structuredOutputs: true,
 });
-export const o3MiniModel = openai('o3-mini', {
-  reasoningEffort: 'medium',
-  structuredOutputs: true,
-});
+// export const o3MiniModel = openai('o3-mini', {
+//   reasoningEffort: 'medium',
+//   structuredOutputs: true,
+// });
 
 const MinChunkSize = 140;
 const encoder = getEncoding('o200k_base');
