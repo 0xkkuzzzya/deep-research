@@ -18,16 +18,20 @@ function askQuestion(query: string): Promise<string> {
 	});
 }
 
+let query = []
+
+export function AwaitRequest(request: string) {
+	query.push(request)
+}
+
 // run the agent
-async function run() {
+async function run(query: string) {
 	// Get initial query
-	const initialQuery = await askQuestion('What would you like to research? ');
+	const initialQuery = query;
 
 	// Get breath and depth parameters
-	const breadth =
-		parseInt(await askQuestion('Enter research breadth (recommended 2-10, default 4): '), 10) || 4;
-	const depth =
-		parseInt(await askQuestion('Enter research depth (recommended 1-5, default 2): '), 10) || 2;
+	const breadth = 4;
+	const depth = 2;
 
 	console.log(`Creating research plan...`);
 
@@ -80,4 +84,4 @@ ${followUpQuestions.map((q, i) => `Q: ${q}\nA: ${answers[i]}`).join('\n')}
 	rl.close();
 }
 
-run().catch(console.error);
+// run().catch(console.error);
